@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1200, initial-scale=0.5, maximum-scale=3.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Saptagiri Construction | Residential & Commercial Builders in Dharwad</title>
     <meta name="description" content="Saptagiri Construction is a trusted residential and commercial construction company in Dharwad, Karnataka. Contact us for quality building services and project execution.">
 
@@ -102,7 +102,7 @@
     left: 0;
     right: 0;
     z-index: 1000;
-    padding: calc(var(--space-md) + 12px) var(--space-xl);
+    padding:  1rem 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -118,8 +118,8 @@
         }
         
         .logo-image {
-            width: 80px;
-            height: 80px;
+            width: 50px;
+            height: 50px;
             transition: transform var(--duration-base) var(--ease-elegant);
         }
         
@@ -1063,95 +1063,83 @@
             }
         }
         
-        @media (max-width: 968px) {
+        @media (max-width: 768px) {
             :root {
-                --space-xl: 3rem;
-                --space-2xl: 5rem;
-                --space-3xl: 7rem;
+                --space-xl: 1.5rem;
+                --space-2xl: 3rem;
+                --space-3xl: 4rem;
             }
-            
-            .nav {
-                padding: var(--space-md);
-            }
-            
-            .nav.scrolled {
-                padding: var(--space-sm) var(--space-md);
-            }
-            
+
+            .nav { padding: 0.85rem 1.25rem; }
+            .logo-image { width: 40px; height: 40px; }
+            .logo-text { font-size: 0.95rem; }
+            .nav-toggle { display: flex; z-index: 1100; }
             .nav-menu {
                 position: fixed;
-                top: 0;
-                right: -100%;
-                width: 80%;
-                max-width: 400px;
-                height: 100vh;
-                background: var(--ivory);
+                top: 0; right: -100%;
+                width: 78%; max-width: 320px; height: 100vh;
+                background: #ffffff;
                 flex-direction: column;
-                padding: var(--space-3xl) var(--space-lg);
-                gap: var(--space-md);
-                align-items: flex-start;
-                box-shadow: -4px 0 24px rgba(26, 35, 50, 0.1);
-                transition: right var(--duration-base) var(--ease-elegant);
+                padding: 5rem 2rem 2rem;
+                gap: 1.5rem; align-items: flex-start;
+                box-shadow: -4px 0 32px rgba(26,35,50,0.15);
+                transition: right 0.5s cubic-bezier(0.4,0,0.2,1);
+                z-index: 1050;
             }
-            
-            .nav-menu.active {
-                right: 0;
-            }
-            
-            .nav-toggle {
-                display: flex;
-            }
-            
-            .landmarks-grid {
-                grid-template-columns: 1fr;
-                gap: var(--space-md);
-            }
-            
-            .landmark-card {
-                aspect-ratio: 3 / 2;
-            }
-            
-            .trust-grid,
-            .brand-statement {
-                grid-template-columns: 1fr;
-            }
-            
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-                align-items: stretch;
-            }
+            .nav-menu.active { right: 0; }
+            .nav-link { font-size: 1rem; color: #1a2b3c; }
+            .nav-cta { width: 100%; text-align: center; }
+
+            .hero { height: 100svh; min-height: 580px; }
+            .hero-content { padding: 0 1.25rem; }
+            .hero-title { font-size: clamp(2rem, 9vw, 3rem); margin-bottom: 1.25rem; }
+            .hero-subtitle { font-size: 0.95rem; margin-bottom: 2rem; }
+            .scroll-indicator { display: none; }
+
+            section { padding: 3rem 1.25rem; }
+            .section-title { font-size: clamp(1.5rem, 6vw, 2.25rem); }
+            .section-description { font-size: 0.95rem; }
+
+            .brand-intro { max-width: 100%; }
+            .brand-statement { grid-template-columns: 1fr; gap: 0.75rem; margin-top: 1.75rem; }
+            .statement-item { padding: 1.25rem 1rem; }
+            .statement-icon { width: 72px; height: 72px; }
+
+            .landmarks-grid { grid-template-columns: 1fr; gap: 1rem; }
+            .landmark-card { aspect-ratio: 16/9; }
+
+            .services-grid { grid-template-columns: 1fr; gap: 1rem; }
+            .service-card-image { height: 180px; }
+            .service-card-content { padding: 1.25rem 1rem; }
+
+            .trust-grid { grid-template-columns: 1fr; gap: 0; }
+            .trust-card { padding: 1.5rem 1rem; border-bottom: 1px solid rgba(232,227,214,0.1); }
+            .trust-number { font-size: 2.75rem; }
+
+            .reviews-section { padding: 3rem 1.25rem; }
+            .reviews-grid { grid-template-columns: 1fr; gap: 1rem; }
+            .review-card { padding: 1.25rem; }
+
+            .cta-section { padding: 3rem 1.25rem; }
+            .cta-buttons { flex-direction: column; align-items: stretch; gap: 0.75rem; }
+            .cta-buttons .btn { text-align: center; width: 100%; }
+
+            footer { padding: 2.5rem 1.25rem 1.5rem; }
+            .footer-content { grid-template-columns: 1fr; gap: 2rem; }
+
+            .gallery-prev { left: 0.5rem; }
+            .gallery-next { right: 0.5rem; }
+            .gallery-nav { width: 40px; height: 40px; font-size: 1.1rem; }
+
+            .floating-social { right: 10px; bottom: 10px; gap: 8px; }
+            .floating-social a { width: 40px; height: 40px; font-size: 15px; }
         }
-        
-        @media (max-width: 640px) {
-            section {
-                padding: var(--space-2xl) var(--space-md);
-            }
-            
-            .hero-content {
-                padding: 0 var(--space-md);
-            }
-            
-            .logo-image {
-                width: 32px;
-                height: 32px;
-            }
-            
-            .gallery-prev { left: var(--space-xs); }
-            .gallery-next { right: var(--space-xs); }
-            
-            .gallery-nav {
-                width: 44px;
-                height: 44px;
-                font-size: 1.25rem;
-            }
+
+        @media (max-width: 400px) {
+            .logo-text { font-size: 0.8rem; }
+            .logo-image { width: 34px; height: 34px; }
+            .hero-title { font-size: clamp(1.75rem, 9.5vw, 2.25rem); }
+            .nav-menu { width: 88%; }
         }
 /* Floating Social Buttons */
 .floating-social {
@@ -1296,7 +1284,7 @@
     margin: 0;
 }
 
-@media (max-width: 968px) {
+@media (max-width: 768px) {
     .reviews-grid {
         grid-template-columns: 1fr;
     }
