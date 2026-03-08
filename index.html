@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Saptagiri Construction | Residential & Commercial Builders in Dharwad</title>
-    <meta name="description" content="Saptagiri Construction is a trusted residential and commercial construction company in Dharwad, Karnataka. Contact us for quality building services and project execution.">
+    <meta name="description" content="Saptagiri Construction is a trusted residential and commercial construction company in Hubli-Dharwad, Karnataka. Contact us for quality building services and project execution.">
 
     
     <!-- Premium Fonts: Crimson Pro + DM Sans -->
@@ -35,14 +35,14 @@
             --text-tertiary: #718096;
             
             /* Typography */
-            --display-xl: clamp(3.5rem, 8vw, 7rem);
-            --display-lg: clamp(2.75rem, 6vw, 5rem);
-            --display-md: clamp(2.25rem, 4.5vw, 3.75rem);
-            --heading-xl: clamp(2rem, 3.5vw, 3rem);
-            --heading-lg: clamp(1.75rem, 2.8vw, 2.25rem);
-            --heading-md: clamp(1.5rem, 2.2vw, 1.875rem);
-            --body-xl: clamp(1.25rem, 1.8vw, 1.5rem);
-            --body-lg: clamp(1.125rem, 1.4vw, 1.25rem);
+            --display-xl: clamp(2rem, 8vw, 7rem);
+--display-lg: clamp(1.75rem, 6vw, 5rem);
+--display-md: clamp(1.5rem, 4.5vw, 3.75rem);
+--heading-xl: clamp(1.5rem, 3.5vw, 3rem);
+--heading-lg: clamp(1.25rem, 2.8vw, 2.25rem);
+--heading-md: clamp(1.1rem, 2.2vw, 1.875rem);
+--body-xl: clamp(1rem, 1.8vw, 1.5rem);
+--body-lg: clamp(0.95rem, 1.4vw, 1.25rem);;
             --body-md: 1rem;
             --body-sm: 0.875rem;
             --caption: 0.75rem;
@@ -102,7 +102,7 @@
     left: 0;
     right: 0;
     z-index: 1000;
-    padding:  1rem 1.5rem;
+    padding: 1.25rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -118,8 +118,8 @@
         }
         
         .logo-image {
-            width: 50px;
-            height: 50px;
+            width: 65px;
+            height: 65px;
             transition: transform var(--duration-base) var(--ease-elegant);
         }
         
@@ -129,7 +129,7 @@
         
         .logo-text {
     font-family: 'Crimson Pro', serif;
-    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    font-size: clamp(1.5rem, 2.5vw, 1.9rem);
     font-weight: 600;
     color: #1a2b3c;
     letter-spacing: 0.02em;
@@ -146,7 +146,7 @@
         .nav-link {
     	    color: #1a2b3c;
     	    text-decoration: none;
-            font-size: var(--body-sm);
+            font-size: 0.95rem;
             font-weight: 500;
             letter-spacing: 0.08em;
             text-transform: uppercase;
@@ -174,7 +174,7 @@
         }
         
         .nav-cta {
-            padding: 0.75rem 1.75rem;
+            padding: 0.85rem 2rem;
             background: var(--midnight);
             color: var(--ivory);
             border: none;
@@ -491,16 +491,16 @@
         }
         
         .brand-statement {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--space-xl);
-            margin-top: var(--space-2xl);
-        }
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5;
+    margin-top: 0;
+}
         
         .statement-item {
-            text-align: center;
-            padding: var(--space-lg) var(--space-md);
-        }
+    text-align: center;
+    padding: 0.5rem;
+}
         
         .statement-icon {
             width: 120px;
@@ -561,9 +561,9 @@
         }
         
         .landmark-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 48px rgba(26, 35, 50, 0.18);
-        }
+    transform: translateY(-8px);
+    box-shadow: 0 24px 56px rgba(26, 35, 50, 0.28), 0 0 0 2px rgba(184, 120, 86, 0.3);
+}
         
         .landmark-card .card-image {
             position: absolute;
@@ -595,25 +595,50 @@
         }
         
         .landmark-card .card-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: var(--space-lg) var(--space-md);
-            background: linear-gradient(to top, rgba(26, 35, 50, 0.95) 0%, rgba(26, 35, 50, 0.6) 60%, transparent 100%);
-            transition: background var(--duration-base) var(--ease-elegant);
-        }
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: var(--space-lg) var(--space-md);
+    background: linear-gradient(to top, rgba(26, 35, 50, 0.97) 0%, rgba(26, 35, 50, 0.5) 50%, transparent 100%);
+    transition: all 0.4s ease;
+}
+
+.landmark-card:hover .card-overlay {
+    background: linear-gradient(to top, rgba(26, 35, 50, 0.99) 0%, rgba(26, 35, 50, 0.75) 70%, transparent 100%);
+    padding-bottom: 2.5rem;
+}
+
+.landmark-card .card-hint {
+    font-size: var(--caption);
+    color: var(--copper-light);
+    opacity: 0;
+    margin-top: 0.5rem;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    transform: translateY(6px);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.landmark-card:hover .card-hint {
+    opacity: 1;
+    transform: translateY(0);
+}
         
         .landmark-card:hover .card-overlay {
             background: linear-gradient(to top, rgba(26, 35, 50, 0.98) 0%, rgba(26, 35, 50, 0.7) 70%, transparent 100%);
         }
         
         .landmark-card .card-title {
-            font-size: var(--heading-md);
-            color: var(--ivory);
-            margin-bottom: var(--space-xs);
-            transition: transform var(--duration-base) var(--ease-elegant);
-        }
+    font-size: var(--heading-md);
+    color: var(--ivory);
+    margin-bottom: var(--space-xs);
+    transition: transform 0.4s ease;
+}
+
+.landmark-card:hover .card-title {
+    transform: translateY(-4px);
+}
         
         .landmark-card .card-tag {
             font-size: var(--caption);
@@ -1092,13 +1117,14 @@
 
             .hero { height: 100svh; min-height: 580px; }
             .hero-content { padding: 0 1.25rem; }
-            .hero-title { font-size: clamp(2rem, 9vw, 3rem); margin-bottom: 1.25rem; }
-            .hero-subtitle { font-size: 0.95rem; margin-bottom: 2rem; }
+            .hero-title { font-size: clamp(1.75rem, 8vw, 2.75rem); margin-bottom: 1.25rem; line-height: 1.15; }
+.hero-subtitle { font-size: 1rem; margin-bottom: 2rem; line-height: 1.6; }
             .scroll-indicator { display: none; }
 
             section { padding: 3rem 1.25rem; }
-            .section-title { font-size: clamp(1.5rem, 6vw, 2.25rem); }
-            .section-description { font-size: 0.95rem; }
+            .section-title { font-size: clamp(1.4rem, 5.5vw, 2rem); margin-bottom: 1rem; }
+            .section-description { font-size: 0.95rem; margin-bottom: 2rem; }
+
 
             .brand-intro { max-width: 100%; }
             .brand-statement { grid-template-columns: 1fr; gap: 0.75rem; margin-top: 1.75rem; }
@@ -1114,7 +1140,15 @@
 
             .trust-grid { grid-template-columns: 1fr; gap: 0; }
             .trust-card { padding: 1.5rem 1rem; border-bottom: 1px solid rgba(232,227,214,0.1); }
-            .trust-number { font-size: 2.75rem; }
+            .trust-number { font-size: 2.5rem; }
+.trust-card h3 { font-size: 1.1rem; }
+.trust-card p { font-size: 0.9rem; }
+.landmark-card .card-title { font-size: 1.1rem; }
+.service-title { font-size: 1.1rem; }
+.service-description { font-size: 0.9rem; }
+.review-text { font-size: 0.9rem; }
+.gallery-title { font-size: 1.1rem; }
+.gallery-description { font-size: 0.9rem; }
 
             .reviews-section { padding: 3rem 1.25rem; }
             .reviews-grid { grid-template-columns: 1fr; gap: 1rem; }
@@ -1138,7 +1172,9 @@
         @media (max-width: 400px) {
             .logo-text { font-size: 0.8rem; }
             .logo-image { width: 34px; height: 34px; }
-            .hero-title { font-size: clamp(1.75rem, 9.5vw, 2.25rem); }
+            .hero-title { font-size: clamp(1.5rem, 8.5vw, 2rem); }
+section { padding: 2.5rem 1rem; }
+.section-title { font-size: clamp(1.25rem, 5vw, 1.75rem); }
             .nav-menu { width: 88%; }
         }
 /* Floating Social Buttons */
@@ -1163,13 +1199,21 @@
     color: white;
     text-decoration: none;
     font-size: 20px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .floating-social a:hover {
-    transform: scale(1.1);
+    transform: scale(1.12);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.3);
 }
+
+/* Individual icon colors */
+.floating-social a.whatsapp  { background: #25D366; }
+.floating-social a.email     { background: #ffffff; color: #1a2332; border: 1.5px solid rgba(0,0,0,0.1); }
+.floating-social a.instagram { background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+.floating-social a.youtube   { background: #FF0000; }
+.floating-social a.maps      { background: #1DB954; }
 
 
 /* ============================================
@@ -1386,13 +1430,13 @@ section.bg-midnight p {
     <section class="hero" id="home">
         <div class="hero-bg"></div>
         <div class="hero-content">
-            <div class="hero-label">Dharwad, Karnataka</div>
+            <div class="hero-label">Hubli-Dharwad, Karnataka</div>
             <h1 class="hero-title">
                 YOU DREAM IT.
                 <span class="accent">WE BUILD IT.</span>
             </h1>
             <p class="hero-subtitle">
-                Where architectural vision meets structural excellence. Creating landmarks that endure.
+                Where Structural Integrity Meets Design.<br>   Creating landmarks that endure.
             </p>
             <div class="hero-cta">
                 <a href="#projects" class="btn btn-primary">View Our Work</a>
@@ -1406,14 +1450,76 @@ section.bg-midnight p {
 
     <!-- BRAND INTRODUCTION -->
     <section class="brand-intro bg-ivory fade-in-up" id="about">
-        <div class="section-label">Our Philosophy</div>
+        <div class="section-label">Our Foundation & Philosophy</div>
         <h2 class="section-title">Designed with Purpose. Executed with Care.</h2>
         <p class="section-description">
-            Saptagiri Construction is a leading firm dedicated to excellence in Structural Design, Architecture, and Construction. We provide comprehensive solutions for those looking to build their dreams from the ground up, specializing in New Construction, Renovation, and modern Interior Design.
-Proprietor: Er. Samrudh P Shetty
-With over 25,000 subscribers on YouTube and a strong Instagram presence, we are proud to share our construction journey and expertise with a global community. Choose Saptagiri Construction for professional service, structural integrity, and innovative design.
+            At the heart of our work lies a simple belief — <em>'We don't just build structures, we build trust.'</em> 
+            Our journey is defined by a multi-generational commitment to engineering excellence and a deep-rooted 
+            connection to the Hubli-Dharwad community.
         </p>
-        
+
+        <!-- Legacy Block -->
+        <div style="
+            display: flex;
+            align-items: flex-start;
+            gap: 2.5rem;
+            background: var(--cream);
+            border-left: 3px solid var(--copper);
+            border-radius: 4px;
+            padding: 2rem 2.5rem;
+            margin-bottom: var(--space-2xl);
+            max-width: 900px;
+            text-align: left;
+        ">
+            <div style="flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 0.75rem;">
+                <div style="
+                    width: 64px;
+                    height: 64px;
+                    border-radius: 50%;
+                    background: var(--midnight);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                ">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(232,227,214,0.85)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                </div>
+                <div style="width: 1px; height: 100%; min-height: 40px; background: linear-gradient(to bottom, var(--copper), transparent);"></div>
+            </div>
+
+            <div>
+                <div style="font-size: var(--body-sm); letter-spacing: 0.2em; text-transform: uppercase;
+                color: var(--copper); font-weight: 500; margin-bottom: 0.5rem;">
+                A Legacy of Excellence
+                </div>
+
+                <h3 style="font-family: 'Crimson Pro', serif; font-size: var(--heading-md); color: var(--text-primary); margin-bottom: 0.75rem;">
+                Er. Purandar Shetty
+                </h3>
+
+                <p style="font-size: var(--body-md); color: var(--text-secondary); line-height: 1.8; margin-bottom: 1rem;">
+                    The story of our expertise begins with Er. Purandar Shetty, a veteran engineer with over 25 years of experience. 
+                    As the founder of Samrudh Construction, he has been a pivotal figure in shaping the local skyline. 
+                    His decades of hands-on experience ensure that every project we undertake is built on a bedrock 
+                    of structural integrity and technical precision.
+                </p>
+
+                <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; font-size: var(--body-sm); color: var(--text-secondary);">
+                        <span style="width: 6px; height: 6px; border-radius: 50%; background: var(--copper); flex-shrink: 0;"></span>
+                        Custom-designed independent houses
+                    </div>
+
+                    <div style="display: flex; align-items: center; gap: 0.5rem; font-size: var(--body-sm); color: var(--text-secondary);">
+                        <span style="width: 6px; height: 6px; border-radius: 50%; background: var(--copper); flex-shrink: 0;"></span>
+                        Modern PG accommodations & commercial landmarks
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="brand-statement">
             <div class="statement-item">
                 <div class="statement-icon">
@@ -1422,7 +1528,7 @@ With over 25,000 subscribers on YouTube and a strong Instagram presence, we are 
                 <h3>Precision Engineering</h3>
                 <p>Every measurement matters. Every detail counts. We build with exacting standards.</p>
             </div>
-            
+
             <div class="statement-item">
                 <div class="statement-icon">
                     <img src="tick.jpg" alt="Timeless Design">
@@ -1430,7 +1536,7 @@ With over 25,000 subscribers on YouTube and a strong Instagram presence, we are 
                 <h3>Timeless Design</h3>
                 <p>Architecture that transcends trends. Spaces designed for decades, not seasons.</p>
             </div>
-            
+
             <div class="statement-item">
                 <div class="statement-icon">
                     <img src="tick.jpg" alt="Uncompromising Quality">
@@ -1439,7 +1545,7 @@ With over 25,000 subscribers on YouTube and a strong Instagram presence, we are 
                 <p>Premium materials. Master craftsmanship. No shortcuts. No compromises.</p>
             </div>
         </div>
-    </section>
+</section>
 
     <!-- OUR LANDMARKS / PROJECTS SECTION -->
     <section class="bg-cream fade-in-up" id="projects">
