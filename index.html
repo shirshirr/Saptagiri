@@ -630,24 +630,57 @@
             display: block;
         }
 
-       .single-slide-card {
-            position: relative;
-            width: 100%;
-            height: 600px;
-            overflow: hidden;
-            border-radius: 4px;
-            cursor: pointer;
-            background: var(--stone);
+
+	.project-row {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
         }
 
-        .single-slide-image {
-            position: absolute;
-            inset: 0;
-            background-size: cover;
-            background-position: center;
-            opacity: 0;
-            transition: opacity 0.8s ease-in-out;
+        .project-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
         }
+
+        .project-name {
+            font-family: 'Crimson Pro', serif;
+            font-size: var(--body-lg);
+            font-weight: 600;
+            color: var(--text-primary);
+            letter-spacing: -0.01em;
+        }
+
+        
+
+        @media (max-width: 768px) {
+            .project-row {
+                grid-template-columns: 1fr;
+            }
+           
+        }
+
+
+       .single-slide-card {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 4px;
+    cursor: pointer;
+    background: #111111;
+}
+
+        .single-slide-image {
+    position: absolute;
+    inset: 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: var(--midnight);
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
 
 	
 	.single-slide-img {
@@ -655,9 +688,9 @@
             inset: 0;
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
             object-position: center;
-            background: var(--cream);
+            background: var(--midnight);
             opacity: 0;
             transition: opacity 0.8s ease-in-out;
         }
@@ -748,7 +781,7 @@
     left: 0;
     right: 0;
     padding: var(--space-lg) var(--space-md);
-    background: linear-gradient(to top, rgba(26, 35, 50, 0.97) 0%, rgba(26, 35, 50, 0.5) 50%, transparent 100%);
+   background: linear-gradient(to top, rgba(26, 35, 50, 0.92) 0%, rgba(26, 35, 50, 0.4) 60%, transparent 100%);
     transition: all 0.4s ease;
 }
 
@@ -1291,9 +1324,8 @@
             .statement-item { padding: 1.25rem 1rem; }
             .statement-icon { width: 72px; height: 72px; }
 
-            .single-slide-card { height: auto; aspect-ratio: 4/3; }
-            .single-slide-image { background-size: contain; background-repeat: no-repeat; background-color: var(--cream); }
-
+           .single-slide-card { height: 260px; }
+            
             .services-grid { grid-template-columns: 1fr; gap: 1rem; }
             .service-card-image { height: 180px; }
             .service-card-content { padding: 1.25rem 1rem; }
@@ -1549,10 +1581,42 @@ section.bg-midnight p {
 }
 
 
+
+
+.slide-project-label {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    font-family: 'Crimson Pro', serif;
+    font-size: clamp(1rem, 2vw, 1.4rem);
+    font-weight: 600;
+    color: var(--ivory);
+    text-shadow: 0 1px 6px rgba(0,0,0,0.6);
+    background: rgba(26, 35, 50, 0.55);
+    padding: 0.35rem 0.85rem;
+    border-left: 3px solid var(--copper);
+    pointer-events: none;
+    z-index: 6;
+}
+
+.single-slide-image {
+    position: absolute;
+    inset: 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: var(--cream);
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
    </style>
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+
 
 
 </head>
@@ -1823,24 +1887,31 @@ max-width: 100%;
             From intimate hospitality spaces to expansive commercial ventures, each project reflects our commitment to excellence.
         </p>
 
-        <!-- HOSPITALITY -->
+       <!-- HOSPITALITY -->
         <div class="slider-block">
             <h3 class="slider-category-label">Hospitality</h3>
-            <div class="single-slide-card" data-landmark
-                 data-title="Highway Tadka, Mugad"
-                 data-description="Complete construction and interior execution for a modern roadside hospitality destination."
-                 data-photos='["1.jpeg","2.jpeg","3.jpeg"]'>
-                <div class="single-slide-image active" style="background-image: url('1.jpeg');"></div>
-                <div class="single-slide-image" style="background-image: url('2.jpeg');"></div>
-                <div class="single-slide-image" style="background-image: url('3.jpeg');"></div>
-                <div class="card-overlay">
-                    <h3 class="card-title">Highway Tadka, Mugad</h3>
-                    <span class="card-hint">Click to view gallery</span>
-                </div>
-                <div class="slide-dots">
-                    <span class="dot active"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
+            <div class="project-row">
+                <div class="project-item">
+                    <div class="single-slide-card" data-landmark
+                         data-title="Hospitality"
+                         data-description=""
+                         data-photos='["1.jpeg","2.jpeg","3.jpeg"]'>
+                        <div class="single-slide-image active" style="background-image: url('1.jpeg');">
+                            <div class="slide-project-label">Highway Tadka, Mugad</div>
+                        </div>
+                        <div class="single-slide-image" style="background-image: url('2.jpeg');">
+                            <div class="slide-project-label">Highway Tadka, Mugad</div>
+                        </div>
+                        <div class="single-slide-image" style="background-image: url('3.jpeg');">
+                            <div class="slide-project-label">Highway Tadka, Mugad</div>
+                        </div>
+                        <div class="card-overlay" style="background:none;padding:0;"></div>
+                        <div class="slide-dots">
+                            <span class="dot active"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1849,66 +1920,92 @@ max-width: 100%;
        <!-- COMMERCIAL -->
         <div class="slider-block">
             <h3 class="slider-category-label">Commercial</h3>
-            <div class="single-slide-card" data-landmark
-                 data-title="Shree Durga Lodge"
-                 data-description="Multi-story commercial lodge featuring premium accommodations and modern structural design. Dharwad."
-                 data-photos='["durga.webp","durga2.jpg","durga3.jpg","durga4.jpg"]'>
-                <img class="single-slide-img active" src="durga.webp" alt="Shree Durga Lodge">
-                <img class="single-slide-img" src="durga2.jpg" alt="Shree Durga Lodge">
-                <img class="single-slide-img" src="durga3.jpg" alt="Shree Durga Lodge">
-                <img class="single-slide-img" src="durga4.jpg" alt="Shree Durga Lodge">
-                <div class="card-overlay">
-                    <h3 class="card-title">Shree Durga Lodge</h3>
-                    <span class="card-hint">Click to view gallery</span>
-                </div>
-                <div class="slide-dots">
-                    <span class="dot active"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
+            <div class="project-row">
+                <div class="project-item">
+                    <div class="single-slide-card" data-landmark
+                         data-title="Commercial"
+                         data-description=""
+                         data-photos='["durga.webp","durga2.jpg","durga3.jpg","durga4.jpg"]'>
+                        <div class="single-slide-image active" style="background-image: url('durga.webp');">
+                            <div class="slide-project-label">Shree Durga Lodge</div>
+                        </div>
+                        <div class="single-slide-image" style="background-image: url('durga2.jpg');">
+                            <div class="slide-project-label">Shree Durga Lodge</div>
+                        </div>
+                        <div class="single-slide-image" style="background-image: url('durga3.jpg');">
+                            <div class="slide-project-label">Shree Durga Lodge</div>
+                        </div>
+                        <div class="single-slide-image" style="background-image: url('durga4.jpg');">
+                            <div class="slide-project-label">Shree Durga Lodge</div>
+                        </div>
+                        <div class="card-overlay" style="background:none;padding:0;"></div>
+                        <div class="slide-dots">
+                            <span class="dot active"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- RESIDENTIAL -->
+       <!-- RESIDENTIAL -->
         <div class="slider-block">
             <h3 class="slider-category-label">Residential</h3>
-            <div class="single-slide-card" data-landmark
-                 data-title="Residential House"
-                 data-description="Bespoke residential construction tailored to client vision."
-                 data-photos='["residentialhome1.jpeg","residentialhome4.jpeg"]'>
-                <img class="single-slide-img active" src="residentialhome1.jpeg" alt="Residential House">
-                <img class="single-slide-img" src="residentialhome4.jpeg" alt="Residential House">
-                <div class="card-overlay">
-                    <h3 class="card-title">Residential House</h3>
-                    <span class="card-hint">Click to view gallery</span>
-                </div>
-                <div class="slide-dots">
-                    <span class="dot active"></span>
-                    <span class="dot"></span>
+            <div class="project-row">
+                <div class="project-item">
+                    <div class="single-slide-card" data-landmark
+                         data-title="Residential"
+                         data-description=""
+                         data-photos='["residentialhome1.jpeg","residentialhome4.jpeg"]'>
+                        <div class="single-slide-image active" style="background-image: url('residentialhome1.jpeg');">
+                            <div class="slide-project-label">Residential House</div>
+                        </div>
+                        <div class="single-slide-image" style="background-image: url('residentialhome4.jpeg');">
+                            <div class="slide-project-label">Residential House</div>
+                        </div>
+                        <div class="card-overlay" style="background:none;padding:0;"></div>
+                        <div class="slide-dots">
+                            <span class="dot active"></span>
+                            <span class="dot"></span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
+
 
         <!-- INTERIORS -->
         <div class="slider-block">
             <h3 class="slider-category-label">Interiors</h3>
-            <div class="single-slide-card" data-landmark
-                 data-title="Interiors"
-                 data-photos='["interior1.jpeg","interior3.jpeg","interior2.jpeg"]'>
-                <div class="single-slide-image active" style="background-image: url('interior22.jpeg');"></div>
-                <div class="single-slide-image" style="background-image: url('interior1.jpeg');"></div>
-                <div class="single-slide-image" style="background-image: url('interior3.jpeg');"></div>
-                <div class="single-slide-image" style="background-image: url('interior2.jpeg');"></div>
-                <div class="card-overlay">
-                    <h3 class="card-title">Interiors</h3>
-                    <span class="card-hint">Click to view gallery</span>
-                </div>
-                <div class="slide-dots">
-                    <span class="dot active"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
+            <div class="project-row">
+                <div class="project-item">
+                    <div class="single-slide-card" data-landmark
+                         data-title="Interiors"
+                         data-description=""
+                         data-photos='["interior22.jpeg","interior1.jpeg","interior3.jpeg","interior2.jpeg"]'>
+                        <div class="single-slide-image active" style="background-image: url('interior22.jpeg');">
+                            <div class="slide-project-label">Interiors</div>
+                        </div>
+                        <div class="single-slide-image" style="background-image: url('interior1.jpeg');">
+                            <div class="slide-project-label">Interiors</div>
+                        </div>
+                        <div class="single-slide-image" style="background-image: url('interior3.jpeg');">
+                            <div class="slide-project-label">Interiors</div>
+                        </div>
+                        <div class="single-slide-image" style="background-image: url('interior2.jpeg');">
+                            <div class="slide-project-label">Interiors</div>
+                        </div>
+                        <div class="card-overlay" style="background:none;padding:0;"></div>
+                        <div class="slide-dots">
+                            <span class="dot active"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2296,21 +2393,7 @@ max-width: 100%;
 
 
 
-	// Single-photo auto slideshow
-       document.querySelectorAll('.single-slide-card').forEach(card => {
-            const images = card.querySelectorAll('.single-slide-image, .single-slide-img');
-            const dots = card.querySelectorAll('.dot');
-            let current = 0;
-
-            setInterval(() => {
-                images[current].classList.remove('active');
-                dots[current].classList.remove('active');
-                current = (current + 1) % images.length;
-                images[current].classList.add('active');
-                dots[current].classList.add('active');
-            }, 3000);
-        });
-
+	
 
 
 
@@ -2420,5 +2503,458 @@ max-width: 100%;
             });
         })();
     </script>
+
+
+
+
+
+
+
+
+})();
+    </script>
+
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+        import { getFirestore, doc, getDoc, setDoc } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAJk-lQUcvuMevx0u4WE0P_NIa_7Xg3hnw",
+            authDomain: "saptagiri-construction-68103.firebaseapp.com",
+            projectId: "saptagiri-construction-68103",
+            storageBucket: "saptagiri-construction-68103.firebasestorage.app",
+            messagingSenderId: "376650244601",
+            appId: "1:376650244601:web:367c58c5b8c2511e97dd28",
+            measurementId: "G-9BPH22J2TM"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        const DEFAULT_DATA = {
+            stats: { projects: "270+", years: "25+", satisfaction: "100%" },
+            categories: {
+                Hospitality: [{ name: "Highway Tadka, Mugad", description: "Complete construction and interior execution for a modern roadside hospitality destination.", photos: ["1.jpeg","2.jpeg","3.jpeg"] }],
+                Commercial: [{ name: "Shree Durga Lodge", description: "Multi-story commercial lodge featuring premium accommodations and modern structural design.", photos: ["durga.webp","durga2.jpg","durga3.jpg","durga4.jpg"] }],
+                Residential: [{ name: "Residential House", description: "Bespoke residential construction tailored to client vision.", photos: ["residentialhome1.jpeg","residentialhome4.jpeg"] }],
+                Interiors: [{ name: "Interiors", description: "Premium interior finishing with expert execution.", photos: ["interior22.jpeg","interior1.jpeg","interior3.jpeg","interior2.jpeg"] }]
+            }
+        };
+
+        let siteData = JSON.parse(JSON.stringify(DEFAULT_DATA));
+        let keyBuffer = '';
+
+        async function loadData() {
+            try {
+                const snap = await getDoc(doc(db, 'site', 'data'));
+                if (snap.exists()) siteData = snap.data();
+                else await setDoc(doc(db, 'site', 'data'), DEFAULT_DATA);
+                renderSite(); renderStats();
+            } catch(e) {
+                console.warn('Firebase error:', e);
+                renderSite(); renderStats();
+            }
+        }
+
+        async function saveData() {
+            try { await setDoc(doc(db, 'site', 'data'), siteData); }
+            catch(e) { alert('Save failed. Check Firebase config.'); }
+        }
+
+        function renderSite() {
+            const section = document.getElementById('projects');
+            section.querySelectorAll('.slider-block').forEach(b => b.remove());
+            ['Hospitality','Commercial','Residential','Interiors'].forEach(cat => {
+                const projects = siteData.categories[cat] || [];
+                if (!projects.length) return;
+                const block = document.createElement('div');
+                block.className = 'slider-block';
+                block.innerHTML = `<h3 class="slider-category-label">${cat}</h3><div class="project-row" id="row-${cat}"></div>`;
+                section.appendChild(block);
+                renderCategoryCard(cat, projects, document.getElementById(`row-${cat}`));
+            });
+            initSlideshows();
+        }
+
+        function renderCategoryCard(cat, projects, container) {
+    // Flatten all photos across all projects, keeping project name per photo
+    const allSlides = [];
+    projects.forEach(proj => {
+        (proj.photos || []).forEach(src => {
+            allSlides.push({ src, name: proj.name });
+        });
+    });
+
+    if (!allSlides.length) return;
+
+    const photosJson = JSON.stringify(projects.flatMap(p => p.photos || []));
+
+    let slidesHtml = '';
+    let dotsHtml = '';
+
+    allSlides.forEach((slide, i) => {
+        const activeClass = i === 0 ? ' active' : '';
+        slidesHtml += `
+            <div class="single-slide-image${activeClass}" style="background-image:url('${slide.src}');">
+                <div class="slide-project-label">${slide.name}</div>
+            </div>`;
+        dotsHtml += `<span class="dot${activeClass}"></span>`;
+    });
+
+    container.innerHTML = `
+        <div class="project-item">
+            <div class="single-slide-card" data-landmark
+                 data-title="${cat}"
+                 data-description=""
+                 data-photos='${photosJson}'>
+                ${slidesHtml}
+                <div class="card-overlay" style="background:none;padding:0;"></div>
+                <div class="slide-dots">${dotsHtml}</div>
+            </div>
+        </div>`;
+}
+
+        function openGalleryExternal(title, description, photos) {
+            const overlay = document.getElementById('galleryOverlay');
+            const galleryImage = document.getElementById('galleryImage');
+            document.getElementById('galleryTitle').textContent = title;
+            document.getElementById('galleryDescription').textContent = description;
+            let currentIndex = 0;
+            if (!photos.length) {
+                galleryImage.style.display = 'none';
+                document.getElementById('galleryCounter').textContent = 'No photos';
+                document.getElementById('galleryPrev').classList.add('hidden');
+                document.getElementById('galleryNext').classList.add('hidden');
+            } else {
+                galleryImage.style.display = '';
+                galleryImage.src = photos[0];
+                document.getElementById('galleryCounter').textContent = '1 / ' + photos.length;
+                document.getElementById('galleryPrev').classList.toggle('hidden', photos.length <= 1);
+                document.getElementById('galleryNext').classList.toggle('hidden', photos.length <= 1);
+            }
+            overlay.classList.add('active');
+            overlay.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            document.getElementById('galleryPrev').onclick = () => { currentIndex = (currentIndex - 1 + photos.length) % photos.length; galleryImage.src = photos[currentIndex]; document.getElementById('galleryCounter').textContent = (currentIndex + 1) + ' / ' + photos.length; };
+            document.getElementById('galleryNext').onclick = () => { currentIndex = (currentIndex + 1) % photos.length; galleryImage.src = photos[currentIndex]; document.getElementById('galleryCounter').textContent = (currentIndex + 1) + ' / ' + photos.length; };
+        }
+
+        function renderStats() {
+            const nums = document.querySelectorAll('.trust-number');
+            if (nums[0]) nums[0].textContent = siteData.stats.projects;
+            if (nums[1]) nums[1].textContent = siteData.stats.years;
+            if (nums[2]) nums[2].textContent = siteData.stats.satisfaction;
+        }
+
+        function initSlideshows() {
+            document.querySelectorAll('.single-slide-card').forEach(card => {
+                const images = card.querySelectorAll('.single-slide-image, .single-slide-img');
+                const dots = card.querySelectorAll('.dot');
+                if (images.length <= 1) return;
+                let current = 0;
+                if (card._interval) clearInterval(card._interval);
+                card._interval = setInterval(() => {
+                    images[current].classList.remove('active');
+                    if (dots[current]) dots[current].classList.remove('active');
+                    current = (current + 1) % images.length;
+                    images[current].classList.add('active');
+                    if (dots[current]) dots[current].classList.add('active');
+                }, 3000);
+            });
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) return;
+            keyBuffer += e.key.toLowerCase();
+            if (keyBuffer.length > 10) keyBuffer = keyBuffer.slice(-10);
+            if (keyBuffer.includes('sgca')) { keyBuffer = ''; showAdminLogin(); }
+        });
+
+        function showAdminLogin() {
+            const overlay = document.createElement('div');
+            overlay.id = 'adminLoginOverlay';
+            overlay.innerHTML = `<div class="adm-login-box">
+                <div class="adm-login-logo">⚙</div>
+                <h2>Admin Portal</h2>
+                <p>Saptagiri Construction</p>
+                <input type="password" id="adminPwInput" placeholder="Enter password" autofocus>
+                <button id="adminLoginBtn">Login</button>
+                <button id="adminCancelBtn" class="adm-cancel">Cancel</button>
+                <div id="adminLoginErr" class="adm-err"></div>
+            </div>`;
+            document.body.appendChild(overlay);
+            document.getElementById('adminLoginBtn').onclick = () => {
+                const entered = document.getElementById('adminPwInput').value;
+                const stored = localStorage.getItem('sgca_pw') || 'saptagiri2024';
+                if (entered === stored) { overlay.remove(); showAdminPanel(); }
+                else document.getElementById('adminLoginErr').textContent = 'Wrong password.';
+            };
+            document.getElementById('adminPwInput').addEventListener('keydown', e => { if (e.key === 'Enter') document.getElementById('adminLoginBtn').click(); });
+            document.getElementById('adminCancelBtn').onclick = () => overlay.remove();
+        }
+
+        function showAdminPanel() {
+            const existing = document.getElementById('adminPanel');
+            if (existing) existing.remove();
+            const panel = document.createElement('div');
+            panel.id = 'adminPanel';
+            panel.innerHTML = `
+                <div class="adm-header">
+                    <div class="adm-header-left"><span class="adm-logo">⚙</span> Admin Portal — Saptagiri Construction</div>
+                    <button class="adm-close-btn" id="adminClose">✕ Close</button>
+                </div>
+                <div class="adm-body">
+                    <div class="adm-tabs">
+                        <button class="adm-tab active" data-tab="projects">Projects</button>
+                        <button class="adm-tab" data-tab="stats">Stats</button>
+                        <button class="adm-tab" data-tab="settings">Settings</button>
+                    </div>
+                    <div class="adm-tab-content" id="admTabContent"></div>
+                </div>`;
+            document.body.appendChild(panel);
+            document.getElementById('adminClose').onclick = () => panel.remove();
+            panel.querySelectorAll('.adm-tab').forEach(tab => {
+                tab.onclick = () => {
+                    panel.querySelectorAll('.adm-tab').forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    renderTab(tab.dataset.tab);
+                };
+            });
+            renderTab('projects');
+        }
+
+        function renderTab(tab) {
+            const content = document.getElementById('admTabContent');
+            if (tab === 'projects') renderProjectsTab(content);
+            else if (tab === 'stats') renderStatsTab(content);
+            else renderSettingsTab(content);
+        }
+
+        function renderProjectsTab(content) {
+            content.innerHTML = `<div class="adm-section-title">Manage Projects</div>
+                ${['Hospitality','Commercial','Residential','Interiors'].map(cat => `
+                <div class="adm-category-block">
+                    <div class="adm-cat-header">
+                        <span class="adm-cat-name">${cat}</span>
+                        <button class="adm-add-btn" onclick="adminAddProject('${cat}')">+ Add Project</button>
+                    </div>
+                    <div class="adm-projects-list">
+                        ${(siteData.categories[cat]||[]).map((p,i) => `
+                        <div class="adm-project-row">
+                            <div class="adm-project-info">
+                                <div class="adm-project-thumb" style="background-image:url('${p.photos[0]}')"></div>
+                                <div><div class="adm-project-name">${p.name}</div><div class="adm-project-meta">${p.photos.length} photo${p.photos.length!==1?'s':''}</div></div>
+                            </div>
+                            <div class="adm-project-actions">
+                                <button class="adm-edit-btn" onclick="adminEditProject('${cat}',${i})">✏ Edit</button>
+                                <button class="adm-del-btn" onclick="adminDeleteProject('${cat}',${i})">🗑 Delete</button>
+                            </div>
+                        </div>`).join('')}
+                    </div>
+                </div>`).join('')}`;
+        }
+
+        window.adminAddProject = (cat) => showProjectEditor(cat, -1, {name:'',description:'',photos:[]});
+        window.adminEditProject = (cat, i) => showProjectEditor(cat, i, siteData.categories[cat][i]);
+        window.adminDeleteProject = async (cat, i) => {
+            if (!confirm(`Delete "${siteData.categories[cat][i].name}"?`)) return;
+            siteData.categories[cat].splice(i, 1);
+            await saveData(); renderSite();
+            document.querySelector('.adm-tab[data-tab="projects"]').click();
+        };
+
+        function showProjectEditor(cat, index, proj) {
+            const isNew = index === -1;
+            const modal = document.createElement('div');
+            modal.className = 'adm-modal-overlay';
+            modal.innerHTML = `<div class="adm-modal">
+                <div class="adm-modal-header">
+                    <h3>${isNew ? 'Add New Project' : 'Edit Project'} — ${cat}</h3>
+                    <button class="adm-modal-close" id="admModalClose">✕</button>
+                </div>
+                <div class="adm-modal-body">
+                    <label>Project Name</label>
+                    <input type="text" id="admProjName" value="${proj.name}" placeholder="e.g. Highway Tadka, Mugad">
+                    <label>Description</label>
+                    <textarea id="admProjDesc" rows="3">${proj.description}</textarea>
+                    <label>Photos</label>
+                    <div class="adm-photos-list" id="admPhotosList"></div>
+                    <div class="adm-add-photo-row">
+                        <input type="text" id="admPhotoUrl" placeholder="Paste photo URL...">
+                        <button class="adm-add-photo-btn" id="admAddPhotoUrl">+ Add URL</button>
+                    </div>
+                    <p style="font-size:0.75rem;color:#718096;margin-top:0.5rem;line-height:1.6;">
+    📌 Use <strong>direct image URLs</strong> ending in .jpg / .png / .webp.<br>
+    Free hosting: <a href="https://imgbb.com" target="_blank" style="color:#b87856;">imgbb.com</a> → upload → copy "Direct link". Open link in new tab .<br>
+ Right Click on image , select copy image link/address .<br>
+ Paste it above 
+</p>
+                </div>
+                <div class="adm-modal-footer">
+                    <button class="adm-save-btn" id="admSaveProject">💾 Save Project</button>
+                    <button class="adm-cancel-btn" id="admCancelProject">Cancel</button>
+                </div>
+            </div>`;
+            document.body.appendChild(modal);
+            let currentPhotos = [...proj.photos];
+
+            function refreshPhotos() {
+                document.getElementById('admPhotosList').innerHTML = currentPhotos.map((p,i) => `
+                    <div class="adm-photo-item">
+                        <div class="adm-photo-thumb" style="background-image:url('${p}')"></div>
+                        <span class="adm-photo-url">${p.length>40?p.slice(0,40)+'…':p}</span>
+                        <button class="adm-photo-del" data-i="${i}">✕</button>
+                    </div>`).join('');
+                document.querySelectorAll('.adm-photo-del').forEach(btn => {
+                    btn.onclick = () => { currentPhotos.splice(parseInt(btn.dataset.i), 1); refreshPhotos(); };
+                });
+            }
+            refreshPhotos();
+
+            document.getElementById('admModalClose').onclick = () => modal.remove();
+            document.getElementById('admCancelProject').onclick = () => modal.remove();
+            document.getElementById('admAddPhotoUrl').onclick = () => {
+                const url = document.getElementById('admPhotoUrl').value.trim();
+                if (url) { currentPhotos.push(url); document.getElementById('admPhotoUrl').value = ''; refreshPhotos(); }
+            };
+            document.getElementById('admSaveProject').onclick = async () => {
+                const name = document.getElementById('admProjName').value.trim();
+                const desc = document.getElementById('admProjDesc').value.trim();
+                if (!name) { alert('Project name required.'); return; }
+                if (!siteData.categories[cat]) siteData.categories[cat] = [];
+                const updated = { name, description: desc, photos: currentPhotos };
+                if (isNew) siteData.categories[cat].push(updated);
+                else siteData.categories[cat][index] = updated;
+                await saveData(); renderSite(); modal.remove();
+                document.querySelector('.adm-tab[data-tab="projects"]').click();
+            };
+        }
+
+        function renderStatsTab(content) {
+            content.innerHTML = `<div class="adm-section-title">Edit Why Saptagiri Stats</div>
+                <div class="adm-stats-grid">
+                    <div class="adm-stat-item"><label>Projects Delivered</label><input type="text" id="statProjects" value="${siteData.stats.projects}"></div>
+                    <div class="adm-stat-item"><label>Years of Expertise</label><input type="text" id="statYears" value="${siteData.stats.years}"></div>
+                    <div class="adm-stat-item"><label>Client Satisfaction</label><input type="text" id="statSatisfaction" value="${siteData.stats.satisfaction}"></div>
+                </div>
+                <button class="adm-save-btn" id="admSaveStats">💾 Save Stats</button>`;
+            document.getElementById('admSaveStats').onclick = async () => {
+                siteData.stats.projects = document.getElementById('statProjects').value.trim();
+                siteData.stats.years = document.getElementById('statYears').value.trim();
+                siteData.stats.satisfaction = document.getElementById('statSatisfaction').value.trim();
+                await saveData(); renderStats();
+                document.getElementById('admSaveStats').textContent = '✓ Saved!';
+                setTimeout(() => { document.getElementById('admSaveStats').textContent = '💾 Save Stats'; }, 2000);
+            };
+        }
+
+        function renderSettingsTab(content) {
+            content.innerHTML = `<div class="adm-section-title">Change Admin Password</div>
+                <div class="adm-settings-form">
+                    <label>Current Password</label><input type="password" id="admCurPw" placeholder="Current password">
+                    <label>New Password</label><input type="password" id="admNewPw" placeholder="Min 6 characters">
+                    <label>Confirm New Password</label><input type="password" id="admConfPw" placeholder="Confirm new password">
+                    <button class="adm-save-btn" id="admSavePw">🔐 Update Password</button>
+                    <div id="admPwMsg" class="adm-pw-msg"></div>
+                </div>`;
+            document.getElementById('admSavePw').onclick = () => {
+                const cur = document.getElementById('admCurPw').value;
+                const stored = localStorage.getItem('sgca_pw') || 'saptagiri2024';
+                const newPw = document.getElementById('admNewPw').value;
+                const conf = document.getElementById('admConfPw').value;
+                const msg = document.getElementById('admPwMsg');
+                if (cur !== stored) { msg.style.color='#e74c3c'; msg.textContent='Current password wrong.'; return; }
+                if (newPw.length < 6) { msg.style.color='#e74c3c'; msg.textContent='Min 6 characters.'; return; }
+                if (newPw !== conf) { msg.style.color='#e74c3c'; msg.textContent='Passwords do not match.'; return; }
+                localStorage.setItem('sgca_pw', newPw);
+                msg.style.color='#27ae60'; msg.textContent='✓ Password updated!';
+            };
+        }
+
+        const adminStyles = document.createElement('style');
+        adminStyles.textContent = `
+            #adminLoginOverlay{position:fixed;inset:0;background:rgba(26,35,50,0.92);backdrop-filter:blur(8px);z-index:9999;display:flex;align-items:center;justify-content:center}
+            .adm-login-box{background:#fff;border-radius:12px;padding:2.5rem 2rem;width:340px;text-align:center;box-shadow:0 24px 64px rgba(0,0,0,0.4)}
+            .adm-login-logo{font-size:2.5rem;margin-bottom:0.5rem}
+            .adm-login-box h2{font-family:'Crimson Pro',serif;font-size:1.8rem;color:#1a2332;margin-bottom:0.25rem}
+            .adm-login-box p{color:#718096;font-size:0.85rem;margin-bottom:1.5rem}
+            .adm-login-box input{width:100%;padding:0.75rem 1rem;border:1.5px solid #e2e8f0;border-radius:6px;font-size:1rem;margin-bottom:1rem;outline:none;font-family:'DM Sans',sans-serif}
+            .adm-login-box input:focus{border-color:#b87856}
+            .adm-login-box button{width:100%;padding:0.85rem;background:#1a2332;color:#fff;border:none;border-radius:6px;font-size:0.95rem;cursor:pointer;margin-bottom:0.5rem;font-family:'DM Sans',sans-serif}
+            .adm-login-box button:hover{background:#2d3e50}
+            .adm-cancel{background:transparent!important;color:#718096!important;border:1.5px solid #e2e8f0!important}
+            .adm-err{color:#e74c3c;font-size:0.85rem;margin-top:0.5rem}
+            #adminPanel{position:fixed;inset:0;background:#f8f6f1;z-index:9998;display:flex;flex-direction:column;overflow:hidden;font-family:'DM Sans',sans-serif}
+            .adm-header{background:#1a2332;color:#fff;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;flex-shrink:0}
+            .adm-header-left{display:flex;align-items:center;gap:0.75rem;font-size:1rem;font-weight:500}
+            .adm-logo{font-size:1.4rem}
+            .adm-close-btn{background:rgba(255,255,255,0.12);border:none;color:#fff;padding:0.5rem 1rem;border-radius:6px;cursor:pointer;font-size:0.9rem;font-family:'DM Sans',sans-serif}
+            .adm-close-btn:hover{background:rgba(255,255,255,0.2)}
+            .adm-body{flex:1;overflow-y:auto;padding:2rem;max-width:900px;margin:0 auto;width:100%}
+            .adm-tabs{display:flex;gap:0.5rem;margin-bottom:2rem;border-bottom:2px solid #e2e8f0}
+            .adm-tab{background:none;border:none;padding:0.75rem 1.5rem;cursor:pointer;font-size:0.95rem;color:#718096;border-bottom:2px solid transparent;margin-bottom:-2px;font-family:'DM Sans',sans-serif}
+            .adm-tab.active{color:#b87856;border-bottom-color:#b87856;font-weight:600}
+            .adm-section-title{font-family:'Crimson Pro',serif;font-size:1.5rem;color:#1a2332;margin-bottom:1.5rem}
+            .adm-category-block{background:#fff;border-radius:10px;padding:1.25rem;margin-bottom:1.5rem;box-shadow:0 2px 8px rgba(0,0,0,0.06)}
+            .adm-cat-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem}
+            .adm-cat-name{font-family:'Crimson Pro',serif;font-size:1.2rem;font-weight:600;color:#1a2332}
+            .adm-add-btn{background:#b87856;color:#fff;border:none;padding:0.5rem 1rem;border-radius:6px;cursor:pointer;font-size:0.85rem;font-family:'DM Sans',sans-serif}
+            .adm-add-btn:hover{background:#9a5f3f}
+            .adm-project-row{display:flex;justify-content:space-between;align-items:center;padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;margin-bottom:0.5rem}
+            .adm-project-info{display:flex;align-items:center;gap:0.75rem}
+            .adm-project-thumb{width:56px;height:42px;background-size:cover;background-position:center;border-radius:4px;background-color:#e2e8f0;flex-shrink:0}
+            .adm-project-name{font-weight:600;color:#1a2332;font-size:0.95rem}
+            .adm-project-meta{color:#718096;font-size:0.8rem;margin-top:2px}
+            .adm-project-actions{display:flex;gap:0.5rem}
+            .adm-edit-btn{background:#f0f4ff;color:#3b5bdb;border:1px solid #c5d0fc;padding:0.4rem 0.75rem;border-radius:6px;cursor:pointer;font-size:0.8rem;font-family:'DM Sans',sans-serif}
+            .adm-del-btn{background:#fff5f5;color:#e03131;border:1px solid #ffc9c9;padding:0.4rem 0.75rem;border-radius:6px;cursor:pointer;font-size:0.8rem;font-family:'DM Sans',sans-serif}
+            .adm-modal-overlay{position:fixed;inset:0;background:rgba(26,35,50,0.7);z-index:10000;display:flex;align-items:center;justify-content:center;padding:1rem}
+            .adm-modal{background:#fff;border-radius:12px;width:100%;max-width:560px;max-height:90vh;display:flex;flex-direction:column}
+            .adm-modal-header{padding:1.25rem 1.5rem;border-bottom:1px solid #e2e8f0;display:flex;justify-content:space-between;align-items:center}
+            .adm-modal-header h3{font-family:'Crimson Pro',serif;font-size:1.3rem;color:#1a2332;margin:0}
+            .adm-modal-close{background:none;border:none;font-size:1.2rem;cursor:pointer;color:#718096}
+            .adm-modal-body{padding:1.5rem;overflow-y:auto;flex:1}
+            .adm-modal-body label{display:block;font-size:0.85rem;font-weight:600;color:#4a5568;margin-bottom:0.4rem;margin-top:1rem}
+            .adm-modal-body label:first-child{margin-top:0}
+            .adm-modal-body input[type=text],.adm-modal-body textarea{width:100%;padding:0.7rem 0.9rem;border:1.5px solid #e2e8f0;border-radius:6px;font-size:0.95rem;outline:none;font-family:'DM Sans',sans-serif}
+            .adm-modal-body input:focus,.adm-modal-body textarea:focus{border-color:#b87856}
+            .adm-photos-list{display:flex;flex-direction:column;gap:0.4rem;margin-bottom:0.75rem}
+            .adm-photo-item{display:flex;align-items:center;gap:0.5rem;background:#f8f9fa;padding:0.4rem 0.6rem;border-radius:6px}
+            .adm-photo-thumb{width:40px;height:30px;background-size:cover;background-position:center;border-radius:3px;background-color:#e2e8f0;flex-shrink:0}
+            .adm-photo-url{font-size:0.75rem;color:#718096;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+            .adm-photo-del{background:none;border:none;color:#e03131;cursor:pointer;font-size:0.9rem;flex-shrink:0}
+            .adm-add-photo-row{display:flex;gap:0.5rem;margin-bottom:0.5rem}
+            .adm-add-photo-row input{flex:1}
+            .adm-add-photo-btn{background:#1a2332;color:#fff;border:none;padding:0.7rem 1rem;border-radius:6px;cursor:pointer;white-space:nowrap;font-size:0.85rem;font-family:'DM Sans',sans-serif}
+            .adm-modal-footer{padding:1rem 1.5rem;border-top:1px solid #e2e8f0;display:flex;gap:0.75rem}
+            .adm-save-btn{background:#1a2332;color:#fff;border:none;padding:0.75rem 1.5rem;border-radius:6px;cursor:pointer;font-size:0.9rem;font-family:'DM Sans',sans-serif}
+            .adm-save-btn:hover{background:#2d3e50}
+            .adm-cancel-btn{background:#f8f9fa;color:#4a5568;border:1px solid #e2e8f0;padding:0.75rem 1.5rem;border-radius:6px;cursor:pointer;font-size:0.9rem;font-family:'DM Sans',sans-serif}
+            .adm-stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.5rem}
+            .adm-stat-item{background:#fff;padding:1.25rem;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.06)}
+            .adm-stat-item label{display:block;font-size:0.8rem;font-weight:600;color:#718096;margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em}
+            .adm-stat-item input{width:100%;padding:0.6rem 0.75rem;border:1.5px solid #e2e8f0;border-radius:6px;font-size:1.2rem;font-weight:700;color:#b87856;text-align:center;outline:none;font-family:'DM Sans',sans-serif}
+            .adm-stat-item input:focus{border-color:#b87856}
+            .adm-settings-form{background:#fff;border-radius:10px;padding:1.5rem;max-width:400px;box-shadow:0 2px 8px rgba(0,0,0,0.06)}
+            .adm-settings-form label{display:block;font-size:0.85rem;font-weight:600;color:#4a5568;margin-bottom:0.4rem;margin-top:1rem}
+            .adm-settings-form label:first-child{margin-top:0}
+            .adm-settings-form input{width:100%;padding:0.7rem 0.9rem;border:1.5px solid #e2e8f0;border-radius:6px;font-size:0.95rem;outline:none;font-family:'DM Sans',sans-serif;margin-bottom:0.25rem}
+            .adm-settings-form input:focus{border-color:#b87856}
+            .adm-settings-form .adm-save-btn{margin-top:1.25rem}
+            .adm-pw-msg{margin-top:0.75rem;font-size:0.85rem}
+            @media(max-width:600px){.adm-stats-grid{grid-template-columns:1fr}.adm-project-row{flex-direction:column;align-items:flex-start;gap:0.75rem}}
+        `;
+        document.head.appendChild(adminStyles);
+
+        loadData();
+    </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
