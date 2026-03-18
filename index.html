@@ -325,9 +325,11 @@
         }
         
         .hero-cta {
-            opacity: 0;
-            animation: fadeInUp 1s var(--ease-elegant) 0.8s forwards;
-        }
+    opacity: 0;
+    animation: fadeInUp 1s var(--ease-elegant) 0.8s forwards;
+    margin-top: -40px;
+}
+
         
         .btn {
             display: inline-block;
@@ -355,6 +357,59 @@
             transform: translateY(-3px);
             box-shadow: 0 12px 32px rgba(184, 120, 86, 0.3);
         }
+
+	
+
+
+	.hero-social-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.25rem;
+    flex-wrap: wrap;
+}
+
+.btn-social {
+    padding: 0.75rem 1.75rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+}
+
+.btn-instagram {
+    background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: #ffffff;
+}
+
+.btn-instagram:hover {
+    background: linear-gradient(135deg, #d8792b 0%, #ce5630 25%, #c41f37 50%, #b41b5a 75%, #a4107a 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(220, 39, 67, 0.4);
+}
+
+.btn-youtube {
+    background: #FF0000;
+    color: #ffffff;
+}
+
+.btn-youtube:hover {
+    background: #CC0000;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(255, 0, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+    .hero-social-buttons {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+    }
+    
+    .btn-social {
+        width: 100%;
+        text-align: center;
+    }
+}
+
         
         .scroll-indicator {
             position: absolute;
@@ -491,17 +546,28 @@
         }
         
         .brand-statement {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.5;
-    margin-top: 0;
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+    align-items: stretch;
+    width: 100%;
 }
-        
-        .statement-item {
-    text-align: center;
-    padding: 0.5rem;
+
+.statement-item {
+    flex: 1 1 0;
+    max-width: 50%;
+
+    padding: 2rem;
+    background: var(--ivory);
+    color: var(--text-secondary);
 }
-        
+
+
+	.brand-statement > .statement-item {
+    width: 100%;
+}
+	
+      
         .statement-icon {
             width: 120px;
             height: 120px;
@@ -547,6 +613,88 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: var(--space-lg);
+        }
+
+
+	
+.slider-block {
+            margin-bottom: 4rem;
+        }
+
+        .slider-category-label {
+            font-family: 'Crimson Pro', serif;
+            font-size: var(--heading-lg);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+       .single-slide-card {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            overflow: hidden;
+            border-radius: 4px;
+            cursor: pointer;
+            background: var(--stone);
+        }
+
+        .single-slide-image {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+        }
+
+	
+	.single-slide-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            background: var(--cream);
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+        }
+
+        .single-slide-img.active {
+            opacity: 1;
+        }
+
+	
+        .single-slide-image.active {
+            opacity: 1;
+        }
+
+        .slide-dots {
+            position: absolute;
+            bottom: 1.25rem;
+            right: 1.5rem;
+            display: flex;
+            gap: 6px;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.4);
+            transition: background 0.3s ease;
+        }
+
+        .dot.active {
+            background: var(--copper-light);
+        }
+        @media (max-width: 768px) {
+            .slider-track .landmark-card {
+                flex: 0 0 calc(80% - 1rem);
+            }
         }
         
         .landmark-card {
@@ -1135,7 +1283,11 @@
 .brand-intro > div p { font-size: 0.875rem !important; line-height: 1.6 !important; }
 .brand-intro > div h3 { font-size: 1rem !important; }
 .brand-intro > div > div:first-child { display: none !important; }
-            .brand-statement { grid-template-columns: 1fr; gap: 0.75rem; margin-top: 1.75rem; }
+            .brand-statement {
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+}
             .statement-item { padding: 1.25rem 1rem; }
             .statement-icon { width: 72px; height: 72px; }
 
@@ -1448,8 +1600,17 @@ section.bg-midnight p {
                 Where Structural Integrity Meets Design.<br>   Creating landmarks that endure.
             </p>
             <div class="hero-cta">
-                <a href="#projects" class="btn btn-primary">View Our Work</a>
-            </div>
+    <a href="#projects" class="btn btn-primary">View Our Work</a>
+    <div class="hero-social-buttons">
+        <a href="https://www.instagram.com/saptagiri_construction/" target="_blank" class="btn btn-social btn-instagram">
+            View Our Work on Instagram
+        </a>
+        <a href="https://www.youtube.com/@saptagiriconstruction" target="_blank" class="btn btn-social btn-youtube">
+            View Our Work on YouTube
+        </a>
+    </div>
+</div>
+
         </div>
         <div class="scroll-indicator">
             <span>Explore</span>
@@ -1499,6 +1660,23 @@ max-width: 100%;
                 <div style="width: 1px; height: 100%; min-height: 40px; background: linear-gradient(to bottom, var(--copper), transparent);"></div>
             </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             <div>
                 <div style="font-size: var(--body-sm); letter-spacing: 0.2em; text-transform: uppercase;
                 color: var(--copper); font-weight: 500; margin-bottom: 0.5rem;">
@@ -1513,7 +1691,8 @@ max-width: 100%;
                     The story of our expertise begins with Er. Purandar Shetty, a veteran engineer with over 25 years of experience. 
                     As the founder of Samrudh Construction, he has been a pivotal figure in shaping the local skyline. 
                     His decades of hands-on experience ensure that every project we undertake is built on a bedrock 
-                    of structural integrity and technical precision.
+                    of structural integrity and technical precision.<br>
+		     His portfolio Spans a diverse range of projects , including:
                 </p>
 
                 <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
@@ -1528,107 +1707,212 @@ max-width: 100%;
                     </div>
                 </div>
             </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       </div>
+
+        <!-- Samrudh Legacy Block -->
+        <div style="
+            display: flex;
+            align-items: flex-start;
+            gap: 2.5rem;
+            background: var(--cream);
+            border-left: 3px solid var(--copper);
+            border-radius: 4px;
+            padding: 2rem 2.5rem;
+            margin-bottom: var(--space-2xl);
+            text-align: left;
+            max-width: 100%;
+        ">
+            <div style="flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 0.75rem;">
+                <div style="
+                    width: 64px;
+                    height: 64px;
+                    border-radius: 50%;
+                    background: var(--midnight);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                ">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(232,227,214,0.85)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                </div>
+                <div style="width: 1px; height: 100%; min-height: 40px; background: linear-gradient(to bottom, var(--copper), transparent);"></div>
+            </div>
+
+            <div>
+                <div style="font-size: var(--body-sm); letter-spacing: 0.2em; text-transform: uppercase;
+                color: var(--copper); font-weight: 500; margin-bottom: 0.5rem;">
+                Continuing the Legacy
+                </div>
+
+                <h3 style="font-family: 'Crimson Pro', serif; font-size: var(--heading-md); color: var(--text-primary); margin-bottom: 0.75rem;">
+                Er. Samrudh P Shetty
+                </h3>
+
+                <p style="font-size: var(--body-md); color: var(--text-secondary); line-height: 1.8; margin-bottom: 1rem;">
+                    By combining Er. Purandar Shetty's vast technical knowledge with a modern, innovative approach to building,
+                    Er. Samrudh P Shetty brings a forward-thinking vision while maintaining strong engineering principles.
+                    Every project reflects a balance of experience and modern construction standards.
+                </p>
+
+                <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; font-size: var(--body-sm); color: var(--text-secondary);">
+                        <span style="width: 6px; height: 6px; border-radius: 50%; background: var(--copper); flex-shrink: 0;"></span>
+                        Modern construction techniques &amp; innovation
+                    </div>
+
+                    <div style="display: flex; align-items: center; gap: 0.5rem; font-size: var(--body-sm); color: var(--text-secondary);">
+                        <span style="width: 6px; height: 6px; border-radius: 50%; background: var(--copper); flex-shrink: 0;"></span>
+                        Residential, commercial &amp; turnkey projects
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="brand-statement">
-            <div class="statement-item">
-                <div class="statement-icon">
-                    <img src="tick.jpg" alt="Precision Engineering">
-                </div>
-                <h3>Precision Engineering</h3>
-                <p>Every measurement matters. Every detail counts. We build with exacting standards.</p>
-            </div>
-
-            <div class="statement-item">
-                <div class="statement-icon">
-                    <img src="tick.jpg" alt="Timeless Design">
-                </div>
-                <h3>Timeless Design</h3>
-                <p>Architecture that transcends trends. Spaces designed for decades, not seasons.</p>
-            </div>
-
-            <div class="statement-item">
-                <div class="statement-icon">
-                    <img src="tick.jpg" alt="Uncompromising Quality">
-                </div>
-                <h3>Uncompromising Quality</h3>
-                <p>Premium materials. Master craftsmanship. No shortcuts. No compromises.</p>
-            </div>
-        </div>
 </section>
 
-    <!-- OUR LANDMARKS / PROJECTS SECTION -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+       <!-- OUR LANDMARKS / PROJECTS SECTION -->
     <section class="bg-cream fade-in-up" id="projects">
         <div class="section-label">Our Landmarks</div>
         <h2 class="section-title">Projects We've Created</h2>
         <p class="section-description">
             From intimate hospitality spaces to expansive commercial ventures, each project reflects our commitment to excellence.
         </p>
-        
-        <div class="landmarks-grid">
-            <!-- 1. Highway Tadka -->
-            <div class="landmark-card" data-landmark
+
+        <!-- HOSPITALITY -->
+        <div class="slider-block">
+            <h3 class="slider-category-label">Hospitality</h3>
+            <div class="single-slide-card" data-landmark
                  data-title="Highway Tadka, Mugad"
-                 data-description="Complete construction and interior execution for a modern roadside hospitality destination. Designed for efficiency, built for longevity."
+                 data-description="Complete construction and interior execution for a modern roadside hospitality destination."
                  data-photos='["1.jpeg","2.jpeg","3.jpeg"]'>
-                <div class="card-image" style="background-image: url('1.jpeg');"></div>
+                <div class="single-slide-image active" style="background-image: url('1.jpeg');"></div>
+                <div class="single-slide-image" style="background-image: url('2.jpeg');"></div>
+                <div class="single-slide-image" style="background-image: url('3.jpeg');"></div>
                 <div class="card-overlay">
-                    <span class="card-tag">Hospitality</span>
                     <h3 class="card-title">Highway Tadka, Mugad</h3>
                     <span class="card-hint">Click to view gallery</span>
                 </div>
-            </div>
-
-	     
-            
-            <!-- 2. Shree Durga Lodge -->
-            <div class="landmark-card" data-landmark
-                 data-title="Shree Durga Lodge"
-                 data-description="Multi-story commercial lodge featuring premium accommodations and modern structural design. Dharwad."
-                 data-photos='["durga.webp","durga2.jpg","durga3.jpg","durga4.jpg"]'>
-                <div class="card-image" style="background-image: url('durga.webp');"></div>
-                <div class="card-overlay">
-                    <span class="card-tag">Commercial</span>
-                    <h3 class="card-title">Shree Durga Lodge</h3>
-                    <span class="card-hint">Click to view gallery</span>
-                </div>
-            </div>
-            
-            <!-- 3. Residential House -->
-            <div class="landmark-card" data-landmark
-                 data-title="Residential House"
-                 data-description="Bespoke residential construction tailored to client vision. From foundation to final finishes in the Dharwad region."
-                 data-photos='[
-"residentialhome1.jpeg",
-"residentialhome4.jpeg"
-]'>
-
-<div class="card-image" style="background-image: url('residentialhome1.jpeg');"></div>
-
-                <div class="card-overlay">
-                    <span class="card-tag">Residential</span>
-                    <h3 class="card-title">Residential House </h3>
-                    <span class="card-hint">Click to view gallery</span>
-                </div>
-            </div>
-            
-            <!-- 4. Interiors (placeholder) -->
-            <div class="landmark-card" data-landmark
-                 data-title="Interiors"
-                data-photos='[
-"interior1.jpeg",
-"interior3.jpeg",
-"interior2.jpeg"]'>
-
-<div class="card-image" style="background-image: url('interior22.jpeg');"></div>
-
-                <div class="card-overlay">
-                    <span class="card-tag">Interiors</span>
-                    <h3 class="card-title">Interiors</h3>
-                    <span class="card-hint"></span>
+                <div class="slide-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
                 </div>
             </div>
         </div>
+
+       
+       <!-- COMMERCIAL -->
+        <div class="slider-block">
+            <h3 class="slider-category-label">Commercial</h3>
+            <div class="single-slide-card" data-landmark
+                 data-title="Shree Durga Lodge"
+                 data-description="Multi-story commercial lodge featuring premium accommodations and modern structural design. Dharwad."
+                 data-photos='["durga.webp","durga2.jpg","durga3.jpg","durga4.jpg"]'>
+                <img class="single-slide-img active" src="durga.webp" alt="Shree Durga Lodge">
+                <img class="single-slide-img" src="durga2.jpg" alt="Shree Durga Lodge">
+                <img class="single-slide-img" src="durga3.jpg" alt="Shree Durga Lodge">
+                <img class="single-slide-img" src="durga4.jpg" alt="Shree Durga Lodge">
+                <div class="card-overlay">
+                    <h3 class="card-title">Shree Durga Lodge</h3>
+                    <span class="card-hint">Click to view gallery</span>
+                </div>
+                <div class="slide-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- RESIDENTIAL -->
+        <div class="slider-block">
+            <h3 class="slider-category-label">Residential</h3>
+            <div class="single-slide-card" data-landmark
+                 data-title="Residential House"
+                 data-description="Bespoke residential construction tailored to client vision."
+                 data-photos='["residentialhome1.jpeg","residentialhome4.jpeg"]'>
+                <img class="single-slide-img active" src="residentialhome1.jpeg" alt="Residential House">
+                <img class="single-slide-img" src="residentialhome4.jpeg" alt="Residential House">
+                <div class="card-overlay">
+                    <h3 class="card-title">Residential House</h3>
+                    <span class="card-hint">Click to view gallery</span>
+                </div>
+                <div class="slide-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- INTERIORS -->
+        <div class="slider-block">
+            <h3 class="slider-category-label">Interiors</h3>
+            <div class="single-slide-card" data-landmark
+                 data-title="Interiors"
+                 data-photos='["interior1.jpeg","interior3.jpeg","interior2.jpeg"]'>
+                <div class="single-slide-image active" style="background-image: url('interior22.jpeg');"></div>
+                <div class="single-slide-image" style="background-image: url('interior1.jpeg');"></div>
+                <div class="single-slide-image" style="background-image: url('interior3.jpeg');"></div>
+                <div class="single-slide-image" style="background-image: url('interior2.jpeg');"></div>
+                <div class="card-overlay">
+                    <h3 class="card-title">Interiors</h3>
+                    <span class="card-hint">Click to view gallery</span>
+                </div>
+                <div class="slide-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+        </div>
+
     </section>
     
     <!-- Project gallery overlay (hidden by default) -->
@@ -1991,7 +2275,48 @@ max-width: 100%;
             observer.observe(card);
         });
         
-        // Smooth scroll
+       
+
+
+
+
+
+
+
+// Slider logic
+       
+
+        
+
+       
+
+        
+
+        
+
+
+
+	// Single-photo auto slideshow
+       document.querySelectorAll('.single-slide-card').forEach(card => {
+            const images = card.querySelectorAll('.single-slide-image, .single-slide-img');
+            const dots = card.querySelectorAll('.dot');
+            let current = 0;
+
+            setInterval(() => {
+                images[current].classList.remove('active');
+                dots[current].classList.remove('active');
+                current = (current + 1) % images.length;
+                images[current].classList.add('active');
+                dots[current].classList.add('active');
+            }, 3000);
+        });
+
+
+
+
+ 
+
+// Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
